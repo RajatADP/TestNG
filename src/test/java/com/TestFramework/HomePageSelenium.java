@@ -9,6 +9,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.PageObject.Registration;
+import com.PageObject.RegistrationPOM;
 
 public class HomePageSelenium extends BaseClass {
 	
@@ -18,7 +19,9 @@ public class HomePageSelenium extends BaseClass {
 	@Test(dataProvider = "getTestData")
 	public void fillRegistration(String firstName, String lastName, String postalCode, String country) {	
 		reg = new Registration(driver);
-		lib.clickLink(driver, reg.registerLink);
+		// lib.clickLink(driver, reg.registerLink);
+		lib.clickLink(driver, driver.findElement(RegistrationPOM.registerLink));
+		
 		
 		driver.findElement(By.name("firstName")).sendKeys(firstName);
 		driver.findElement(By.name("lastName")).sendKeys(lastName);
@@ -29,7 +32,7 @@ public class HomePageSelenium extends BaseClass {
 	
 	@DataProvider
 	public Iterator<Object[]> getTestData() {
-		ArrayList<Object[]> testData = LibraryClasses.getDataFromExcel();
+		ArrayList<Object[]> testData = lib.getDataFromExcel();
 		return testData.iterator();
 	}
 }

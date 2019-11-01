@@ -1,6 +1,7 @@
 package com.TestFramework;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,7 +16,7 @@ public class LibraryClasses {
 		ele.click();		
 	}
 	
-	public static ArrayList<Object[]> getDataFromExcel() {		
+	public ArrayList<Object[]> getDataFromExcel() {		
 		ArrayList<Object[]> myData = new ArrayList<Object[]>();
 		try {
 			reader = new Xls_Reader("C:\\Users\\Rajat-PC\\testing-framework\\TestFramework\\src\\test\\java\\com\\Resources\\datasheet.xlsx");
@@ -30,7 +31,7 @@ public class LibraryClasses {
 			
 			Object ob[] = {firstName,lastName,postalCode,country};
 			myData.add(ob);
-		}
+		}		
 		return myData;
 	}
 }
