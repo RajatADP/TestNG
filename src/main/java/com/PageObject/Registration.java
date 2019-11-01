@@ -15,7 +15,6 @@ public class Registration {
 	public Registration(WebDriver driver) {
 		// This initElements method will create all WebElement
 		PageFactory.initElements(driver, this);
-
 	}
 
 }
