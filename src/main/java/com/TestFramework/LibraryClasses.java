@@ -1,8 +1,6 @@
 package com.TestFramework;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
