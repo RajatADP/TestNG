@@ -1,17 +1,20 @@
 package com.TestFramework;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 
 public class BaseClass {
-	WebDriver driver;
+	protected static WebDriver driver;
 	Properties prop;
 	String url;
 
@@ -38,6 +41,16 @@ public class BaseClass {
 		return keyValue;
 	}
 
+	public void failedScreenshot(String methodName) {
+		try {
+			File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(srcFile, new File(
+					"C:\\Users\\Rajat-PC\\testing-framework\\TestFramework\\test-output\\Screenshots\\"+ methodName +"_failed.png"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	@BeforeClass
 	public void waits() {
 		driver.manage().window().maximize();
@@ -51,4 +64,5 @@ public class BaseClass {
 	public void logout() {
 		driver.quit();
 	}
+
 }

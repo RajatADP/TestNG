@@ -6,11 +6,14 @@ import java.util.Iterator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.PageObject.Registration;
 import com.PageObject.RegistrationPOM;
+import com.Screenshot.ScreenshotListner;
 
+@Listeners(ScreenshotListner.class)
 public class HomePageSelenium extends BaseClass {
 	
 	LibraryClasses lib = new LibraryClasses();
@@ -19,7 +22,6 @@ public class HomePageSelenium extends BaseClass {
 	@Test(dataProvider = "getTestData")
 	public void fillRegistration(String firstName, String lastName, String postalCode, String country) {	
 		reg = new Registration(driver);
-		// lib.clickLink(driver, reg.registerLink);
 		lib.clickLink(driver, driver.findElement(RegistrationPOM.registerLink));		
 		
 		driver.findElement(By.name("firstName")).sendKeys(firstName);
