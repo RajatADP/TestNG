@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="RetryFailed cases">
+<listeners>
+<listener class-name="com.RetryLogic.MyAnnotationTransformer" ></listener>
+</listeners>
+
+	<test thread-count="5" name="RetryFailed">
+		<classes>
+			<class name="com.RetryLogic.RetryLogicTestClass" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
