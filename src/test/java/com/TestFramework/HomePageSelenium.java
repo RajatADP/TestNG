@@ -20,8 +20,7 @@ public class HomePageSelenium extends BaseClass {
 	public void fillRegistration(String firstName, String lastName, String postalCode, String country) {	
 		reg = new Registration(driver);
 		// lib.clickLink(driver, reg.registerLink);
-		lib.clickLink(driver, driver.findElement(RegistrationPOM.registerLink));
-		
+		lib.clickLink(driver, driver.findElement(RegistrationPOM.registerLink));		
 		
 		driver.findElement(By.name("firstName")).sendKeys(firstName);
 		driver.findElement(By.name("lastName")).sendKeys(lastName);
