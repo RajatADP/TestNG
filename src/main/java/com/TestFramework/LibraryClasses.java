@@ -17,7 +17,7 @@ public class LibraryClasses {
 	public ArrayList<Object[]> getDataFromExcel() {		
 		ArrayList<Object[]> myData = new ArrayList<Object[]>();
 		try {
-			reader = new Xls_Reader("C:\\Users\\suttam\\eclipse-workspace\\TestNG\\src\\test\\java\\com\\Resources\\datasheet.xlsx");
+			reader = new Xls_Reader("C:\\Users\\Rajat-PC\\testing-framework\\TestFramework\\src\\test\\java\\com\\Resources\\datasheet.xlsx");
 		}catch (Exception e) {
 			e.printStackTrace();
 		}		
